@@ -14,7 +14,7 @@ export class StockComponent implements OnChanges {
   outAlert=false;
 
   @Output() boo=new EventEmitter;
-  @Output() astock=this.stock;
+  @Output() aastock=this.stock;
   ngOnChanges(changes:SimpleChanges){
     if(changes.stockvalue.currentValue){
       this.stock=this.stock-this.stockvalue;
