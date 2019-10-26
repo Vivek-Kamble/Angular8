@@ -1,0 +1,16 @@
+<div class="col-4 offset-4" style="margin-top: 100px;background-color:#95a5a6;height: 260px;">
+        <!-- <app-home></app-home> -->
+    <div class="form-group" style="padding-top: 15px;">
+        <input type="number"  [(ngModel)]="default" class="form-control">
+    </div>
+    <div class="form-group">
+        <button (click)="getstock()" class="btn btn-primary mt-2 form-control">Get</button>
+    </div>
+    <div class="form-group">
+        <button [disabled]="!showreset" class="btn btn-primary mt-2 form-control">Reset</button>
+    </div>
+    <h1>ad
+        {{astock}}
+    </h1>
+    <app-stock [stockvalue]="childValue" (boo)="preset($event)"></app-stock>
+</div>

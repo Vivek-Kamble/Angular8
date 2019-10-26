@@ -1,0 +1,26 @@
+<!-- 
+<p (click)="myfunction()" >click me</p>
+
+
+        <input type="text" id="name" placeholder="name">
+        <button (click)="view()">click</button>
+        <h2> {{name}} </h2>
+        <input type="text" placeholder=" {{name}} ">
+
+<p id="viewName"> 
+    
+</p> -->
+
+
+<div class="container col-md-4 offset-md-4" style="background-color: lightgray;margin-top: 100px;height: 200px;">
+        <h1>angular practice</h1>
+        <div class="form-group">
+                <input type="text" id="name" class="form-control" (keyup)="view()" placeholder="Enter ur name">
+        </div>
+        <!-- <div class="form-group">
+                <button class="btn btn-primary form-control" (keyup)="view()">Click Here</button>
+        </div> -->
+        <h3>
+                {{ name }}
+        </h3>
+</div>
