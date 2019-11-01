@@ -8,12 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular8';
-  default=2;  
+  value=2;  
   childValue:any;
   showreset=false;
+
   getstock()
   {
-    this.childValue = this.default
+    this.childValue = this.value
   }
   preset(event)
   {
