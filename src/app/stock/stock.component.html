@@ -1,8 +1,21 @@
+    <div class="mt-2">
+            <!-- <p>{{stockvalue}}</p> -->
+        <div class="alert alert-success" [hidden]="!inAlert">
+            {{msg}}
+        </div>
+        <div class="alert alert-danger" [hidden]="!outAlert">
+            {{msg}}
+        </div>
+    </div>
+
+    
+<!-- 
+    
 <div class="mt-2">
-    <div class="alert alert-success" [hidden]="!inAlert">
+    <div class="alert alert-success" *ngIf="inAlert">
         {{msg}}
     </div>
-    <div class="alert alert-danger" [hidden]="!outAlert">
+    <div class="alert alert-danger" *ngIf="outAlert">
         {{msg}}
     </div>
-</div>
+</div> -->

@@ -14,7 +14,9 @@ export class AppComponent {
 
   getstock()
   {
-    this.childValue = this.value
+    this.childValue = this.value;
+    this.value=0;
+    // console.log(this.childValue)
   }
   preset(event)
   {
