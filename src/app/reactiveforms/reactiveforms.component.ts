@@ -5,15 +5,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './reactiveforms.component.html',
   styleUrls: ['./reactiveforms.component.scss']
 })
-export class ReactiveformsComponent implements OnInit {
+export class ReactiveformsComponent{
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  gender='male';
+  qualification='selectedQualification';
+  submittedStatus=false;
   submit(r)
   {
     console.log(r.value)
+    this.submittedStatus=true;
   }
 
 }

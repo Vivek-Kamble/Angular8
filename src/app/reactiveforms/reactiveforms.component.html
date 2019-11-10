@@ -11,20 +11,23 @@
                 <!-- <label for="genger">Gender</label> -->
                 <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="gender" [checked]="true" ngModel value="male">Male                                             
-                            <input type="radio" class="form-check-input" name="gender" ngModel value="female">Female 
+                            <input type="radio" class="form-check-input" name="gender" [(ngModel)]="gender" value="male">Male                                             
+                            <input type="radio" class="form-check-input" name="gender" [(ngModel)]="gender" value="female">Female 
                         </label>
                 </div>
         </div>
         <div class="form-group">
             <label for="qualification">Qualification</label>
-            <select class="form-control" id="qualification" name="qualification" ngModel>
-                <option selected>---Please Select---</option>
+            <select class="form-control" id="qualification" name="qualification" [ngModel]="qualification" placeholder="af">
+                <option value="selectedQualification">---Please Select---</option>
                 <option value="be">BE/BTech</option>
                 <option value="ms">MS</option>
             </select>
         </div>
         <button class="btn btn-primary" type="submit" (click)="submit(regForm)">Submit</button>
     </form>
+    <div *ngIf="submittedStatus" class="alert alert-success mt-3">
+        Form Submitted Successfully
+    </div>
     
 </div>
