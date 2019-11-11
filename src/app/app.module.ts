@@ -7,21 +7,23 @@ import { HomeComponent } from './home/home.component';
 import { StockComponent } from './stock/stock.component';
 import { ReactiveformsComponent } from './reactiveforms/reactiveforms.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http'
  
-
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     StockComponent,
-    ReactiveformsComponent
+    ReactiveformsComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

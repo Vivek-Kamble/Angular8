@@ -1,33 +1,67 @@
-<div>
+<div [hidden]="viewForm==false">
     <h1>Registration Form</h1>
-    <form #regForm="ngForm">
-        <div class="form-group">
+    <form #regForm="ngForm" (ngSubmit)="submit(regForm)">
+        <!-- <div class="form-group">
             <input type="text" class="form-control" placeholder="Name" name="name" ngModel>
-        </div>
+        </div> -->
         <div class="form-group">
-                <input type="text" class="form-control" placeholder="email@email.com" name="email" ngModel>
+            <input type="number" class="form-control" placeholder="userid" name="userid" [(ngModel)]="usermodel.userid" #userid="ngModel" required [class.is-invalid]="userid.touched && userid.invalid">
+            <small *ngIf="userid.touched && userid.invalid" class="text-danger">User Id is required</small>
         </div>
+        <!-- <div class="form-group">
+                <input type="text" class="form-control" placeholder="email@email.com" name="email" ngModel>
+        </div> -->
+        <div class="form-group">
+                <textarea class="form-control" placeholder="body" name="body" [(ngModel)]="usermodel.body" #body="ngModel" required [class.is-invalid]="body.touched && body.invalid">
+                </textarea>
+                <small *ngIf="body.touched && body.invalid" class="text-danger">Body is required</small>
+            </div>
         <div class="form-group">
                 <!-- <label for="genger">Gender</label> -->
-                <div class="form-check-inline">
+                <div class="form-check-inline form-control" [class.is-invalid]="gender.invalid && gender.touched" >
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="gender" [(ngModel)]="gender" value="male">Male                                             
-                            <input type="radio" class="form-check-input" name="gender" [(ngModel)]="gender" value="female">Female 
+                            <input type="radio" class="form-check-input ml-2" name="gender" [(ngModel)]="usermodel.gender" value="male" required #gender="ngModel">Male                                             
+                            <input type="radio" class="form-check-input" name="gender" [(ngModel)]="usermodel.gender" value="female" required #gender="ngModel">Female 
                         </label>
+                        
                 </div>
+                <small *ngIf="gender.invalid && gender.touched" class="text-danger">Please select gender</small>
         </div>
         <div class="form-group">
             <label for="qualification">Qualification</label>
-            <select class="form-control" id="qualification" name="qualification" [ngModel]="qualification" placeholder="af">
+            <select class="form-control" id="qualification" name="qualification" [(ngModel)]="usermodel.qualification" #qualification="ngModel" [class.is-invalid]="qualification.touched && qualification.value=='selectedQualification'">
                 <option value="selectedQualification">---Please Select---</option>
                 <option value="be">BE/BTech</option>
                 <option value="ms">MS</option>
             </select>
+            <small *ngIf="qualification.touched && qualification.value=='selectedQualification'" class="text-danger">Please select Qualification</small>
         </div>
-        <button class="btn btn-primary" type="submit" (click)="submit(regForm)">Submit</button>
+        
+        <button class="btn btn-primary" style="margin-bottom: 5px;" type="submit" [disabled]="!regForm.valid">Submit</button>
+        <button class="btn btn-primary ml-5" style="margin-bottom: 5px;" type="button" (click)="viewTable=true;viewForm=false">View Table</button>
     </form>
     <div *ngIf="submittedStatus" class="alert alert-success mt-3">
         Form Submitted Successfully
     </div>
     
+</div>
+
+<div [hidden]="viewTable==false">
+    <table class="table table-striped text-justify">
+        <tr class="text-center">
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+        <tbody>
+            <tr *ngFor="let item of datareceived;index as i">
+                <td> {{i+1}} </td>
+                <td> <small>{{item.title}}</small> </td>
+                <td> <small>{{item.body}}</small> </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <!-- {{datareceived[1].id}} -->
 </div>
