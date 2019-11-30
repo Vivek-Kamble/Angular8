@@ -13,4 +13,9 @@ export class UserserviceService {
   {
     return this.http.get(this.apiurl);
   }
+  
+  create(body)
+  {
+    return this.http.post(this.apiurl,body);
+  }
 }

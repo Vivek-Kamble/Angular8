@@ -15,10 +15,14 @@ export class ReactiveformsComponent{
   usermodel = new templatemodel('','','','selectedQualification')
   submit(r)
   {
-    console.log(r)
-    
+    // console.log(r, r.value)
+    this.callservice.create(r.value).subscribe((res)=>{
+      console.log(res)
+    }, (err)=>{
+      console.log(err)
+    });
     // console.log(this.usermodel)
-    this.submittedStatus=true;
+    // this.submittedStatus=true;
   }
   constructor(private callservice:UserserviceService){
     this.getData()
@@ -27,7 +31,7 @@ export class ReactiveformsComponent{
   getData()
   {
     this.callservice.getAll().subscribe(res=>{
-      this.datareceived=res ;
+      this.datareceived=res;
       console.log(this.datareceived);
     });
   }
